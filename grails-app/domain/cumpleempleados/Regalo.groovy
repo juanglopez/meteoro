@@ -2,13 +2,14 @@ package cumpleempleados
 
 class Regalo {
     
-    Integer ID_regalo;
-	Date fecha;
+	String descripcion;
 	Integer estado;
-    
+	Date fecha;
+    String url;
+	
+	
 	static belongsTo = Empleado 
 
-	
     static constraints = {
     }
 }

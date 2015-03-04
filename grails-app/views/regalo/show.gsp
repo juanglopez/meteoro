@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list regalo">
 			
-				<g:if test="${regaloInstance?.ID_regalo}">
-				<li class="fieldcontain">
-					<span id="ID_regalo-label" class="property-label"><g:message code="regalo.ID_regalo.label" default="ID regalo" /></span>
-					
-						<span class="property-value" aria-labelledby="ID_regalo-label"><g:fieldValue bean="${regaloInstance}" field="ID_regalo"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${regaloInstance?.estado}">
 				<li class="fieldcontain">
 					<span id="estado-label" class="property-label"><g:message code="regalo.estado.label" default="Estado" /></span>
@@ -46,6 +37,15 @@
 					<span id="fecha-label" class="property-label"><g:message code="regalo.fecha.label" default="Fecha" /></span>
 					
 						<span class="property-value" aria-labelledby="fecha-label"><g:formatDate date="${regaloInstance?.fecha}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${regaloInstance?.url}">
+				<li class="fieldcontain">
+					<span id="url-label" class="property-label"><g:message code="regalo.url.label" default="Url" /></span>
+					
+						<span class="property-value" aria-labelledby="url-label"><g:fieldValue bean="${regaloInstance}" field="url"/></span>
 					
 				</li>
 				</g:if>

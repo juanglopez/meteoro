@@ -24,11 +24,11 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="ID_regalo" title="${message(code: 'regalo.ID_regalo.label', default: 'ID regalo')}" />
-					
 						<g:sortableColumn property="estado" title="${message(code: 'regalo.estado.label', default: 'Estado')}" />
 					
 						<g:sortableColumn property="fecha" title="${message(code: 'regalo.fecha.label', default: 'Fecha')}" />
+					
+						<g:sortableColumn property="url" title="${message(code: 'regalo.url.label', default: 'Url')}" />
 					
 					</tr>
 				</thead>
@@ -36,11 +36,11 @@
 				<g:each in="${regaloInstanceList}" status="i" var="regaloInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${regaloInstance.id}">${fieldValue(bean: regaloInstance, field: "ID_regalo")}</g:link></td>
-					
-						<td>${fieldValue(bean: regaloInstance, field: "estado")}</td>
+						<td><g:link action="show" id="${regaloInstance.id}">${fieldValue(bean: regaloInstance, field: "estado")}</g:link></td>
 					
 						<td><g:formatDate date="${regaloInstance.fecha}" /></td>
+					
+						<td>${fieldValue(bean: regaloInstance, field: "url")}</td>
 					
 					</tr>
 				</g:each>

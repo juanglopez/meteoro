@@ -10,36 +10,38 @@
 	<g:textField name="apellido" value="${empleadoInstance?.apellido}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'fecha_cumple', 'error')} required">
-	<label for="fecha_cumple">
-		<g:message code="empleado.fecha_cumple.label" default="Fechacumple" />
+<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'cumpleaños', 'error')} required">
+	<label for="cumpleaños">
+		<g:message code="empleado.cumpleaños.label" default="Cumpleaños" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="fecha_cumple" precision="day"  value="${empleadoInstance?.fecha_cumple}"  />
+	<g:datePicker name="cumpleaños" precision="day"  value="${empleadoInstance?.cumpleaños}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'mail', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'mail', 'error')} required"> 
 	<label for="mail">
 		<g:message code="empleado.mail.label" default="Mail" />
-		
+		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="mail" value="${empleadoInstance?.mail}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'nombre', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'nombre', 'error')} required">
 	<label for="nombre">
 		<g:message code="empleado.nombre.label" default="Nombre" />
-		
+		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="nombre" value="${empleadoInstance?.nombre}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'password', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'password', 'error')} required">
 	<label for="password">
 		<g:message code="empleado.password.label" default="Password" />
+		<span class="required-indicator">*</span>
 		
 	</label>
 	<g:textField name="password" value="${empleadoInstance?.password}"/>
+	
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'regalos', 'error')} ">
@@ -48,13 +50,5 @@
 		
 	</label>
 	<g:select name="regalos" from="${cumpleempleados.Regalo.list()}" multiple="multiple" optionKey="id" size="5" value="${empleadoInstance?.regalos*.id}" class="many-to-many"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'user_ID', 'error')} required">
-	<label for="user_ID">
-		<g:message code="empleado.user_ID.label" default="User ID" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="user_ID" type="number" value="${empleadoInstance.user_ID}" required=""/>
 </div>
 
