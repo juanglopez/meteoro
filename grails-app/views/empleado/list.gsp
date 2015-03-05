@@ -26,15 +26,12 @@
 					
 						<g:sortableColumn property="apellido" title="${message(code: 'empleado.apellido.label', default: 'Apellido')}" />
 					
-						<g:sortableColumn property="fecha_cumple" title="${message(code: 'empleado.fecha_cumple.label', default: 'Fechacumple')}" />
+						<g:sortableColumn property="cumpleaños" title="${message(code: 'empleado.cumpleaños.label', default: 'Cumpleaños')}" />
 					
 						<g:sortableColumn property="mail" title="${message(code: 'empleado.mail.label', default: 'Mail')}" />
 					
 						<g:sortableColumn property="nombre" title="${message(code: 'empleado.nombre.label', default: 'Nombre')}" />
 					
-						<g:sortableColumn property="password" title="${message(code: 'empleado.password.label', default: 'Password')}" />
-					
-						<g:sortableColumn property="user_ID" title="${message(code: 'empleado.user_ID.label', default: 'User ID')}" />
 					
 					</tr>
 				</thead>
@@ -44,16 +41,12 @@
 					
 						<td><g:link action="show" id="${empleadoInstance.id}">${fieldValue(bean: empleadoInstance, field: "apellido")}</g:link></td>
 					
-						<td><g:formatDate date="${empleadoInstance.fecha_cumple}" /></td>
+						<td><g:formatDate date="${empleadoInstance.cumpleaños}" /></td>
 					
 						<td>${fieldValue(bean: empleadoInstance, field: "mail")}</td>
 					
 						<td>${fieldValue(bean: empleadoInstance, field: "nombre")}</td>
-					
-						<td>${fieldValue(bean: empleadoInstance, field: "password")}</td>
-					
-						<td>${fieldValue(bean: empleadoInstance, field: "user_ID")}</td>
-					
+				
 					</tr>
 				</g:each>
 				</tbody>

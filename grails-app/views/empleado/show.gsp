@@ -32,11 +32,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${empleadoInstance?.fecha_cumple}">
+				<g:if test="${empleadoInstance?.cumpleaños}">
 				<li class="fieldcontain">
-					<span id="fecha_cumple-label" class="property-label"><g:message code="empleado.fecha_cumple.label" default="Fechacumple" /></span>
+					<span id="cumpleaños-label" class="property-label"><g:message code="empleado.cumpleaños.label" default="Cumpleaños" /></span>
 					
-						<span class="property-value" aria-labelledby="fecha_cumple-label"><g:formatDate date="${empleadoInstance?.fecha_cumple}" /></span>
+						<span class="property-value" aria-labelledby="cumpleaños-label"><g:formatDate date="${empleadoInstance?.cumpleaños}" /></span>
 					
 				</li>
 				</g:if>
@@ -75,15 +75,6 @@
 						<g:each in="${empleadoInstance.regalos}" var="r">
 						<span class="property-value" aria-labelledby="regalos-label"><g:link controller="regalo" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
 						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${empleadoInstance?.user_ID}">
-				<li class="fieldcontain">
-					<span id="user_ID-label" class="property-label"><g:message code="empleado.user_ID.label" default="User ID" /></span>
-					
-						<span class="property-value" aria-labelledby="user_ID-label"><g:fieldValue bean="${empleadoInstance}" field="user_ID"/></span>
 					
 				</li>
 				</g:if>
