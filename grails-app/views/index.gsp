@@ -3,12 +3,10 @@
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Welcome to Grails</title>
-	   
-	   	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>	 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">		
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	   		
+    <link href="${ resource (dir: 'css' , file : 'bootstrap.css')}"  rel="stylesheet" type="text/css" />
+     <script  src="${resource (dir: 'js' , file : 'jquery-1.11.2.min.js')}"></script>      
+     <script type="text/javascript" src="${resource (dir: 'js' , file : 'bootstrap.js')}"></script>      
 	     
 	     <style type="text/css">
 				body{
@@ -21,8 +19,9 @@
 					width:70%;
 				}
 				.btn-primary{
-				    border-color: #yellow;
-    				color: yellow;   				
+				      background-color: #yellow;
+    border-color: #2e6da4;
+    color: #fff;   				
 				}
 				
 </style>
