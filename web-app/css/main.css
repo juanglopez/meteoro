@@ -42,9 +42,9 @@ body {
 	margin: 0 auto;
 	max-width: 960px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-	   -moz-box-shadow: 0 0 0.3em #255b17;
-	-webkit-box-shadow: 0 0 0.3em #255b17;
-	        box-shadow: 0 0 0.3em #255b17;
+	   -moz-box-shadow: 0 0 0.3em #000000;
+	-webkit-box-shadow: 0 0 0.3em #000000;
+	        box-shadow: 0 0 0.3em #000000;
 }
 
 #grailsLogo {
@@ -135,11 +135,11 @@ img {
 /* NAVIGATION MENU */
 
 .nav {
-	background-color: #efefef;
+	background-color: #ffffff;
 	padding: 0.5em 0.75em;
-	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-	        box-shadow: 0 0 3px 1px #aaaaaa;
+	   -moz-box-shadow: 0 0 3px 1px #ffffff;
+	-webkit-box-shadow: 0 0 3px 1px #ffffff;
+	        box-shadow: 0 0 3px 1px #ffffff;
 	zoom: 1;
 }
 
@@ -172,7 +172,7 @@ img {
 }
 
 .nav a:focus, .nav a:hover {
-	background-color: #999999;
+	background-color: #031d9a;
 	color: #ffffff;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
@@ -199,7 +199,7 @@ img {
 }
 
 .nav a.create {
-	background-image: url(../images/skin/database_add.png);
+	background-image: url();
 }
 
 /* CREATE/EDIT FORMS AND SHOW PAGES */

@@ -8,7 +8,8 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>		
-	   <br>		
+       
+       <br>		
 		<div class="nav" role="navigation"> 
 	       
 				<li>
@@ -16,23 +17,12 @@
 							<h4>Inicio</h4>
 				</a>
 				</li>
-				<li>
-				<g:link class="create" action="create" >
-				      <h4>Agregar Empleado</h4> </g:link>
-				 </li>
-
-				<li>
-				<g:link  action="buscar">
-				      <h4>Cumplen Hoy</h4> </g:link>
-				 </li>		 				 
-			</ul>			
 		</div>
-		<br>
-		<br>
-		
+		<br>		
+       
 		<div id="list-empleado" class="content scaffold-list" role="main">
 		
-			     <h2 align="center">Empleados</h2> 
+			     <h2 align="center">::Hoy cumplen estos Empleados::</h2> 
 			     <br>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div> 
@@ -43,23 +33,14 @@
 				<thead>
 					<tr>					    				 					    
 						<g:sortableColumn property="apellido" title="${message(code: 'empleado.apellido.label', default: 'Apellido')}" />
-					    
-					    <g:sortableColumn property="nombre" title="${message(code: 'empleado.nombre.label', default: 'Nombre')}" />					    
-					
-						<g:sortableColumn property="cumpleaños" title="${message(code: 'empleado.cumpleaños.label', default: 'Cumpleaños')}" />
-					
-						<g:sortableColumn property="mail" title="${message(code: 'empleado.mail.label', default: 'Mail')}" />
-					    
-					   <g:sortableColumn property="Asignar Regalo" title="${message(code: 'default.regalar.label', default: 'Asignar')}" />
-					    
-					   
-					    
+					    <g:sortableColumn property="nombre" title="${message(code: 'empleado.nombre.label', default: 'Nombre')}" />
+					    <g:sortableColumn property="cumpleaños" title="${message(code: 'empleado.cumpleaños.label', default: 'Cumpleaños')}" />
 					    
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${empleadoInstanceList}" status="i" var="empleadoInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+				<g:each in="${result}" status="i" var="empleadoInstance">
+					<tr>
 					
 						<td><g:link action="show" id="${empleadoInstance.id}">${fieldValue(bean: empleadoInstance, field: "apellido")}</g:link></td>
 					
@@ -75,9 +56,7 @@
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${empleadoInstanceTotal}" />
-			</div>
+			
 		</div>
 	</body>
 </html>

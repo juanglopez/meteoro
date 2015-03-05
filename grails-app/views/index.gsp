@@ -5,6 +5,8 @@
 		<title>Welcome to Grails</title>
 	   		
     <link href="${ resource (dir: 'css' , file : 'bootstrap.css')}"  rel="stylesheet" type="text/css" />
+<%--        <link href="${ resource (dir: 'css' , file : 'bootstrap.min.css')}"  rel="stylesheet" type="text/css" />--%>
+    
      <script  src="${resource (dir: 'js' , file : 'jquery-1.11.2.min.js')}"></script>      
      <script type="text/javascript" src="${resource (dir: 'js' , file : 'bootstrap.js')}"></script>      
 	     
@@ -18,12 +20,7 @@
 					text-align:left;
 					width:70%;
 				}
-				.btn-primary{
-				      background-color: #yellow;
-    border-color: #2e6da4;
-    color: #fff;   				
-				}
-				
+			
 </style>
 	       	
     </head>
@@ -34,8 +31,12 @@
   					<p>
   					  <g:link class="btn btn-primary btn-lg" controller="Empleado" action="index" role="button"> REGALAR </g:link>
   				    </p>
-
 	</div>
 
+		<div class="footer" role="contentinfo">		     
+		     <img align="center" src="http://www.toyotariba.com.ve/images/MERCADOLIBRE-PNG-FONDO-OSCURO.png" border=0 /> 		
+		</div>
 	</body>
+	
+
 </html>
