@@ -99,29 +99,4 @@ class RegaloController {
             redirect(action: "show", id: id)
         }
     }
-
-	def assignGift() {
-		
-		Empleado empleado = Empleado.get(params.empl as long);
-		
-		def regalos = Regalo.list();
-		
-		def regalo = null
-		
-		regalo = regalos.findAll{
-					it.url = params.url
-				}
-		
-		if (regalo == null) {
-			regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url);
-			regalo.save();
-		}
-		
-		empleado.regalos.add(regalo);
-		empleado.save();
-		
-		[regalo: params.descripcion, empleadoNom:empleado.nombre, empleadoApe: empleado.apellido]
-
-	}
-	
 }
