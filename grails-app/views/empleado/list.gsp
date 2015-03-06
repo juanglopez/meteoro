@@ -37,8 +37,7 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div> 
 			</g:if>
-			
-			
+		
 			<table>
 				<thead>
 					<tr>					    				 					    
@@ -50,11 +49,8 @@
 					
 						<g:sortableColumn property="mail" title="${message(code: 'empleado.mail.label', default: 'Mail')}" />
 					    
-					   <g:sortableColumn property="Asignar Regalo" title="${message(code: 'default.regalar.label', default: 'Asignar')}" />
-					    
-					   
-					    
-					    
+					    <g:sortableColumn property="Asignar Regalo" title="${message(code: 'default.regalos.label', default: 'Regalos')}" />
+  
 					</tr>
 				</thead>
 				<tbody>
@@ -69,7 +65,9 @@
 					
 						<td>${fieldValue(bean: empleadoInstance, field: "mail")}</td>
 					
-					    <td><a href=""> ver </a></td>
+					    <td><g:link action="verRegalos" params="[emp : empleadoInstance.id]"> Ver Regalos  </g:link>
+					
+<%--					   <td><a href=""> Ver Regalos Asignados </a></td>--%>
 				
 					</tr>
 				</g:each>

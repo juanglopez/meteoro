@@ -44,11 +44,4 @@
 	
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: empleadoInstance, field: 'regalos', 'error')} ">
-	<label for="regalos">
-		<g:message code="empleado.regalos.label" default="Regalos" />
-		
-	</label>
-	<g:select name="regalos" from="${cumpleempleados.Regalo.list()}" multiple="multiple" optionKey="id" size="5" value="${empleadoInstance?.regalos*.id}" class="many-to-many"/>
-</div>
 

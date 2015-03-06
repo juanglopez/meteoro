@@ -22,6 +22,15 @@ class EmpleadoController {
         [empleadoInstance: new Empleado(params)]
     }
 	
+	
+	def verRegalos(){
+		def empleado = Empleado.get(params.emp as long)		
+	    def lista_regalos = empleado.regalos;		
+		[regalos: lista_regalos]       
+	}
+	
+	
+	
 	def buscar(){
 		
 	    Calendar cal = this.DateToCalendar(new Date())	    		
@@ -47,7 +56,7 @@ class EmpleadoController {
 	  }
 	
 	  def  Calendar DateToCalendar(Date date){
-		   println(date)
+		 
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(date);
 			return cal;
