@@ -2,6 +2,14 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: regaloInstance, field: 'descripcion', 'error')} ">
+	<label for="descripcion">
+		<g:message code="regalo.descripcion.label" default="Descripcion" />
+		
+	</label>
+	<g:textField name="descripcion" value="${regaloInstance?.descripcion}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: regaloInstance, field: 'estado', 'error')} required">
 	<label for="estado">
 		<g:message code="regalo.estado.label" default="Estado" />

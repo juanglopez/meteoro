@@ -10,10 +10,10 @@ class RegaloController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [regaloInstanceList: Regalo.list(params), regaloInstanceTotal: Regalo.count()]
-    }
+//    def list(Integer max) {
+//        params.max = Math.min(max ?: 10, 100)
+//        [regaloInstanceList: Regalo.list(params), regaloInstanceTotal: Regalo.count()]
+//    }
 
     def create() {
         [regaloInstance: new Regalo(params)]
@@ -99,4 +99,30 @@ class RegaloController {
             redirect(action: "show", id: id)
         }
     }
+
+	def assignGift() {
+		
+	
+		Empleado empleado = Empleado.get(params.empl as long);
+	
+		def regalos = Regalo.list()
+		
+		def regalo = null
+		
+		regalo = regalos.findAll{
+					it.url == params.url
+				}
+		
+		if (regalo != null && regalo.isEmpty()) {
+			regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url);
+			regalo.save(failOnError:true);
+		}
+		
+		empleado.regalos.add(regalo);
+		empleado.save(failOnError:true);
+		
+		[regalo: params.descripcion, empleadoNom:empleado.nombre, empleadoApe: empleado.apellido]
+
+	}
+	
 }

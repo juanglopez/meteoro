@@ -1,0 +1,99 @@
+<!DOCTYPE html> <!-- requerido para indicar q es html 5 -->
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<script type="text/javascript" src="jquery-1.11.2.min.js" ></script> <!-- poner CDN, no hace falta descargarlo -->
+<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script> CDN-->
+
+<title> Ejemplo Url Ajax</title> <!-- obligatorio -->
+</head>
+
+<body>  
+
+    <div>
+
+<!-- <input type="submit" name="option" value=""> Ir a <br> -->
+<input type="checkbox" name="option" value=""> Ir a<br>
+
+    </div>
+    
+    <ul id="respuesta_api">
+    
+    
+    </ul>
+<script type="text/javascript">
+//https://api.mercadolibre.com/items/MLA511127356/description
+var promise = $.get("https://api.mercadolibre.com/sites/MLA/search", {q: "pelopincho", offset: 0 });
+promise.done(mostrarResultado);
+promise.fail(mostrarError);
+// retorna una promesa
+// las var globales, son globales a este archivo
+
+function mostrarResultado(data){
+	$("#respuesta_api").html(data.site_id);
+	
+	$.each(data.results, agregarResultado)
+}
+
+function agregarResultado(index, item) {
+	console.log(item.title);
+	
+	$("#respuesta_api").append("<li>" + item.title + "</li>")
+}
+
+function mostrarError() {
+	$("#respuesta_api").html("Error");
+}
+</script>
+
+<!-- <script type="text/javascript"> 
+
+// $('#action-button').click(function() {
+// 	   $.ajax({
+// 	      url: 'http://api.joind.in/v2.1/talks/10889',
+// 	      data: {
+// 	         format: 'json'
+// 	      },
+// 	      error: function() {
+// 	         $('#info').html('<p>An error has occurred</p>');
+// 	      },
+// 	      dataType: 'jsonp',
+// 	      success: function(data) {
+// 	         var $title = $('<h1>').text(data.talks[0].talk_title);
+// 	         var $description = $('<p>').text(data.talks[0].talk_description);
+// 	         $('#info')
+// 	            .append($title)
+// 	            .append($description);
+// 	      },
+// 	      type: 'GET'
+// 	   });
+// 	});
+
+// $("input").on("click", function(e){
+// 	$.ajax({
+// 	   url: 'http://api.joind.in/v2.1/talks/10889',
+// 	   data: {
+// 	      format: 'json'
+// 	   },
+// 	   error: function() {
+// 	      $('#info').html('<p>An error has occurred</p>');
+// 	   },
+// 	   dataType: 'jsonp',
+// 	   success: function(data) {
+// 	      var $title = $('<h1>').text(data.talks[0].talk_title);
+// 	      var $description = $('<p>').text(data.talks[0].talk_description);
+// 	      $('#info')
+// 	         .append($title)
+// 	         .append($description);
+// 	   },
+// 	   type: 'GET'
+// 	});
+// })
+ </script> -->
+</body>
+
+
+</html>
+

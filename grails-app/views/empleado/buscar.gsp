@@ -48,7 +48,7 @@
 					
 						<td>${fieldValue(bean: empleadoInstance, field: "mail")}</td>
 					
-					    <td><g:link controller="pruductos" action="" id="${empleadoInstance.id}"> Ir </g:link></td>
+					    <td><g:link controller="Productos" action="productos" params="[emp_id :empleadoInstance.id]"> Ir </g:link></td>
 				
 					</tr>
 				</g:each>
