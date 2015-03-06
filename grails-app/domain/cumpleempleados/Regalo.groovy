@@ -4,7 +4,6 @@ class Regalo {
     
 	String descripcion;
 	Integer estado;
-	Date fecha;
     String url;
 	
 	
