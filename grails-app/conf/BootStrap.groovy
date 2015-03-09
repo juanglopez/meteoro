@@ -17,12 +17,13 @@ class BootStrap {
 		Date f2 = new Date("03/11/2013")
 		Date f3 = new Date("03/11/2012")			
 		
+		Date dd= new Date()
 		
-		Regalo r1 = CreateRegalo("ipod",0,f1,"imagen de la foto")
+		Regalo r1 = CreateRegalo("ipod",0,f1,"imagen de la foto",dd,3000)
 		r1.save(failOnError:true)
-		Regalo r2 = CreateRegalo("nokia",0,f2,"imagen de la foto")
+		Regalo r2 = CreateRegalo("nokia",0,f2,"imagen de la foto",dd,4000)
 		r2.save(failOnError:true)
-		Regalo r3 = CreateRegalo("ps4",0,f3,"imagen de la foto")
+		Regalo r3 = CreateRegalo("ps4",0,f3,"imagen de la foto",dd,5000)
 		r3.save(failOnError:true)
 		
 		Empleado e2 = CreateEmpleado("Pepe","sapo","123456","sapo@hotmail.com",d1)				

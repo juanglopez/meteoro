@@ -21,56 +21,8 @@ class RegaloController {
     def create() {
         [regaloInstance: new Regalo(params)]
     }
-    
-	
-	
-	def pagarPorMes(){
-		
-	   
-		
-		
-		
-		   
-		
-	}
-	
-	
-	//
-	
-	
 
-	  
-	  def cumpleHoy(Date cumple , String mes ,String dia ){
-		  
-		  Calendar aux = this.DateToCalendar(cumple)
-		  if (((Integer.toString(aux.get(Calendar.MONTH)+1)).equals(mes))
-			  &&((Integer.toString(aux.get(Calendar.DATE)).equals(dia)) )) {
-						
-				return true
-		  }
-		  return false
-	  }
-	
-	  def  Calendar DateToCalendar(Date date){
-		 
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(date);
-			return cal;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//
+
 	
     def save() {
         def regaloInstance = new Regalo(params)
@@ -155,6 +107,41 @@ class RegaloController {
             redirect(action: "show", id: id)
         }
     }
+	
+	def precioTotal(){
+				
+		Calendar cal = this.DateToCalendar(new Date())
+		def mes =Integer.toString(cal.get(Calendar.MONTH)+1)
+		def año = Integer.toString(cal.get(Calendar.YEAR))
+		
+		def listaRegaloMes = Regalo.list();
+		
+	    def result = listaRegaloMes.findAll( { cumpleMes(it.fechaRegalo , mes ,año) }) 
+					
+		 
+		
+	}
+	
+	
+	def cumpleMes(Date cumple , String mes ,String año ){
+		
+		Calendar aux = this.DateToCalendar(cumple)
+		if (((Integer.toString(aux.get(Calendar.MONTH)+1)).equals(mes))
+			&&((Integer.toString(aux.get(Calendar.YEAR)).equals(año)) )) {
+					  
+			  return true
+		}
+		return false
+	}
+  
+	def  Calendar DateToCalendar(Date date){
+	   
+		  Calendar cal = Calendar.getInstance();
+		  cal.setTime(date);
+		  return cal;
+  }
+	
+
 
 	def assignGift() {
 		
@@ -169,7 +156,8 @@ class RegaloController {
 					it.url == params.url
 				}
 		
-		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url);
+		Date d = new Date();
+		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url,fechaRegalo:d);
 		regalo.save(failOnError:true);
 		
 		empleado.regalos.add(regalo);

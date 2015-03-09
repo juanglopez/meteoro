@@ -6,6 +6,7 @@ class Regalo {
 	Integer estado;
     String url;
 	Date fechaRegalo;
+	Double precio;
 	
 	static belongsTo = Empleado 
 
