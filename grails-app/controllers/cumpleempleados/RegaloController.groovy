@@ -119,10 +119,23 @@ class RegaloController {
 	    def result = listaRegaloMes.findAll( { cumpleMes(it.fechaEntrega , mes ,año) }) 
 					
         def total = result.inject ( 0, {sum , value -> sum + value.precio})  
+	    
+		def montoTotal= total.toString();
 		
+		def send = sendMail {
+			to "renzo.avila@mercadolibre.com"
+			from "john@g2one.com"
+			subject "Monto Total Productos a regalar"
+			body 'El monto Total del mes es $ '+ montoTotal
+			}
+
 		[tatalResult: total]
 		
+	
 	}
+    
+	
+		
 	
 	
 	def cumpleMes(Date cumple , String mes ,String año ){
