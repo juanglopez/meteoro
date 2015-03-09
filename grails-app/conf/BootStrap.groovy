@@ -19,11 +19,11 @@ class BootStrap {
 		
 		Date dd= new Date()
 		
-		Regalo r1 = CreateRegalo("ipod",0,f1,"imagen de la foto",dd,3000)
+		Regalo r1 = CreateRegalo("ipod",0,"imagen de la foto",dd,3000)
 		r1.save(failOnError:true)
-		Regalo r2 = CreateRegalo("nokia",0,f2,"imagen de la foto",dd,4000)
+		Regalo r2 = CreateRegalo("nokia",0,"imagen de la foto",dd,4000)
 		r2.save(failOnError:true)
-		Regalo r3 = CreateRegalo("ps4",0,f3,"imagen de la foto",dd,5000)
+		Regalo r3 = CreateRegalo("ps4",0,"imagen de la foto",dd,5000)
 		r3.save(failOnError:true)
 		
 		Empleado e2 = CreateEmpleado("Pepe","sapo","123456","sapo@hotmail.com",d1)				
@@ -67,8 +67,8 @@ class BootStrap {
 		return e1
 	}
 	
-	def CreateRegalo(a,b,c,d){		
-        Regalo r1 = new Regalo (descripcion:a , estado:b , fecha:c , url:d);
+	def CreateRegalo(a,b,c,d,e){		
+        Regalo r1 = new Regalo (descripcion:a , estado:b , url:c ,fechaEntrega:d, precio:e);
 	    return r1		
 	}
 	

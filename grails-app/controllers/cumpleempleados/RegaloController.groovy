@@ -108,7 +108,7 @@ class RegaloController {
         }
     }
 	
-	def precioTotal(){
+	def montoTotal(){
 				
 		Calendar cal = this.DateToCalendar(new Date())
 		def mes =Integer.toString(cal.get(Calendar.MONTH)+1)
@@ -116,9 +116,11 @@ class RegaloController {
 		
 		def listaRegaloMes = Regalo.list();
 		
-	    def result = listaRegaloMes.findAll( { cumpleMes(it.fechaRegalo , mes ,año) }) 
+	    def result = listaRegaloMes.findAll( { cumpleMes(it.fechaEntrega , mes ,año) }) 
 					
-		 
+        def total = result.inject ( 0, {sum , value -> sum + value.precio})  
+		
+		[tatalResult: total]
 		
 	}
 	
@@ -157,7 +159,7 @@ class RegaloController {
 				}
 		
 		Date d = new Date();
-		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url,fechaRegalo:d);
+		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url,fechaEntrega:d,precio:params.precio);
 		regalo.save(failOnError:true);
 		
 		empleado.regalos.add(regalo);

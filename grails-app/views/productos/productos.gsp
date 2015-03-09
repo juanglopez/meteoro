@@ -48,10 +48,10 @@
 
 
 <script type="text/javascript">
-function submitRegalo(descripcion,url){
+function submitRegalo(descripcion,url,precio){
 	$("#formDescripcion").val( descripcion )
 	$("#formUrl").val( url )
-	
+	$("#formPrecio").val( precio )
      document.forms[0].submit();
 }
 
@@ -74,7 +74,7 @@ function mostrarResultado( data ) {
 function agregarResultado(index, item) {
 	console.log("agregandoresultado ",item);
 	$("#respuesta_api").append( "<li><a href=" + item.permalink + ">" + item.title + "</a></li><ol><img src="+
-	item.thumbnail + "/><button type='button' id='b_elegido'"+ index + " onclick=\"submitRegalo('"+ item.title + "','" + item.permalink +"')\">ELEGIR</button></ol>");
+	item.thumbnail + "/><button type='button' id='b_elegido'"+ index + " onclick=\"submitRegalo('"+ item.title + "','" + item.permalink +"','" + item.price +"')\">ELEGIR</button></ol>");
       
 }
 

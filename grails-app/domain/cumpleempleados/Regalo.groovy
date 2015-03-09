@@ -5,7 +5,7 @@ class Regalo {
 	String descripcion;
 	Integer estado;
     String url;
-	Date fechaRegalo;
+	Date fechaEntrega;
 	Double precio;
 	
 	static belongsTo = Empleado 
