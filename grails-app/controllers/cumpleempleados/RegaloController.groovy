@@ -169,10 +169,8 @@ class RegaloController {
 					it.url == params.url
 				}
 		
-		if (regalo != null && regalo.isEmpty()) {
-			regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url);
-			regalo.save(failOnError:true);
-		}
+		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url);
+		regalo.save(failOnError:true);
 		
 		empleado.regalos.add(regalo);
 		
