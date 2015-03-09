@@ -5,6 +5,13 @@
 		<g:set var="entityName" value="${message(code: 'empleado.label', default: 'Empleado')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	
+	<style type="text/css"> 
+			body { 
+			color: purple; 
+			background-color: #d8da3d } 
+	</style> 
+	
+	
 	</head>
 <body>
      <br>		
@@ -23,10 +30,7 @@
 		</div>
 		<br>
 		<br>
-		
-		
-		
-		
+
 		<div id="nuevo_style">
 		
 	        <h2>El empleado </h2> <h3> ${empleadoNom} ${empleadoApe} </h3>  recibirá el regalo ${regalo}.</h2>
