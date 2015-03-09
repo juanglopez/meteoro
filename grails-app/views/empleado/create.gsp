@@ -20,8 +20,11 @@
 				</li>
 			</ul>
 		</div>
+		<br>
+		<br>
 		<div id="create-empleado" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+			  <h2 align="center">Crear Empleado</h2> 
+			     <br>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

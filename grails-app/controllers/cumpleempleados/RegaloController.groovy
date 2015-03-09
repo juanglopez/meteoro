@@ -1,5 +1,8 @@
 package cumpleempleados
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.dao.DataIntegrityViolationException
 
 class RegaloController {
@@ -18,7 +21,57 @@ class RegaloController {
     def create() {
         [regaloInstance: new Regalo(params)]
     }
+    
+	
+	
+	def pagarPorMes(){
+		
+	   
+		
+		
+		
+		   
+		
+	}
+	
+	
+	//
+	
+	
 
+	  
+	  def cumpleHoy(Date cumple , String mes ,String dia ){
+		  
+		  Calendar aux = this.DateToCalendar(cumple)
+		  if (((Integer.toString(aux.get(Calendar.MONTH)+1)).equals(mes))
+			  &&((Integer.toString(aux.get(Calendar.DATE)).equals(dia)) )) {
+						
+				return true
+		  }
+		  return false
+	  }
+	
+	  def  Calendar DateToCalendar(Date date){
+		 
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(date);
+			return cal;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//
+	
     def save() {
         def regaloInstance = new Regalo(params)
         if (!regaloInstance.save(flush: true)) {
@@ -51,6 +104,9 @@ class RegaloController {
 
         [regaloInstance: regaloInstance]
     }
+	
+	
+	
 
     def update(Long id, Long version) {
         def regaloInstance = Regalo.get(id)
@@ -119,7 +175,10 @@ class RegaloController {
 		}
 		
 		empleado.regalos.add(regalo);
+		
 		empleado.save(failOnError:true);
+		
+	    //HistoricoRegalo hr = new HistoricoRegalo(idRegalo:regalo.id,idEmpleado:"",Date:"");
 		
 		[regalo: params.descripcion, empleadoNom:empleado.nombre, empleadoApe: empleado.apellido]
 
