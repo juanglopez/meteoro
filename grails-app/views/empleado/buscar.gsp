@@ -20,7 +20,7 @@
 		<br>		
        
 		<div id="list-empleado" class="content scaffold-list" role="main">		
-			     <h2 align="center">::Hoy cumplen estos Empleados::</h2> 
+			     <h2 align="center">Hoy cumplen estos Empleados</h2> 
 			     <br>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div> 
@@ -38,8 +38,8 @@
 				</thead>
 				<tbody>
 				<g:each in="${result}" status="i" var="empleadoInstance">
-					<tr>
-					
+				    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+
 						<td><g:link action="show" id="${empleadoInstance.id}">${fieldValue(bean: empleadoInstance, field: "apellido")}</g:link></td>
 					
 						<td>${fieldValue(bean: empleadoInstance, field: "nombre")}</td>
@@ -48,13 +48,17 @@
 					
 						<td>${fieldValue(bean: empleadoInstance, field: "mail")}</td>
 					
-					    <td><g:link controller="Productos" action="productos" params="[emp_id :empleadoInstance.id]"> Ir </g:link></td>
+					    <td><g:link controller="Productos" action="productos" params="[emp_id :empleadoInstance.id]"> Regalar </g:link></td>
 				
 					</tr>
 				</g:each>
 				</tbody>
+			</div>	
 			</table>
-			
+		     <div class="pagination">
+				<g:paginate total="${empleadoInstanceTotal}" />
+			</div>	
+	
 		</div>
 	</body>
 </html>

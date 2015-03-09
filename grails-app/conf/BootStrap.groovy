@@ -26,6 +26,28 @@ class BootStrap {
 		r3.save(failOnError:true)
 		
 		Empleado e2 = CreateEmpleado("Pepe","sapo","123456","sapo@hotmail.com",d1)				
+		
+		Date daux = new Date();
+		
+		Empleado e5 = CreateEmpleado("Lucas","troco","12345886","luc@hotmail.com",daux)
+		Empleado e6 = CreateEmpleado("Seba","tagare","12345678","seb@hotmail.com",daux)
+		Empleado e7 = CreateEmpleado("Nicolas","sutin","12345678","nic@hotmail.com",daux)
+		Empleado e8 = CreateEmpleado("Barbi","lopex","12345678","barb@hotmail.com",daux)
+		Empleado e9 = CreateEmpleado("Rodrigo","peris","12345678","rodir@hotmail.com",daux)
+		Empleado e10 = CreateEmpleado("Nicolas","nicola","1234567","nic@hotmail.com",daux)
+		Empleado e11 = CreateEmpleado("Lucia","mon","12345678","luc@hotmail.com",daux)
+		Empleado e12 = CreateEmpleado("Romina","colucci","1234567","romi@hotmail.com",daux)
+		
+		e5.save();
+		e6.save();
+		e7.save();
+		e8.save();
+		e9.save();
+		e10.save();
+		e11.save();
+		e12.save();
+		
+		
 		e2.regalos.add(r1)		
 		Empleado e3 = CreateEmpleado("Lucas","sopo","12345678","luca@hotmail.com",d2)
 		e3.regalos.add(r2)

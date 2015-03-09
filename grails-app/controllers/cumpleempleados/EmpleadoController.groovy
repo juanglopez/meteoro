@@ -41,7 +41,7 @@ class EmpleadoController {
 		def resultado =lista_cumple.findAll({
 			                   this.cumpleHoy(it.cumpleaños , mes ,dia)
 		})					      
-        [result: resultado ]
+        [result: resultado , empleadoInstanceTotal: Empleado.count()]
 	}
       
       def cumpleHoy(Date cumple , String mes ,String dia ){
