@@ -13,7 +13,7 @@
         <br>		
 		<div class="nav" role="navigation"> 	       
 				<li>
-				<a class="" href="${createLink(uri: '/')}">
+				<a class="" href="${createLink(uri: '/empleado/list')}">
 				<h4>Inicio</h4>
 				</a>
 				</li>
