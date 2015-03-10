@@ -4,13 +4,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'empleado.label', default: 'Empleado')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
-	
-	<style type="text/css"> 
-			body { 
-			color: purple; 
-			background-color: #d8da3d } 
-	</style> 
-	
+
 	
 	</head>
 <body>
@@ -31,9 +25,9 @@
 		<br>
 		<br>
 
-		<div id="nuevo_style">
+		<div>
 		
-	        <h2>El empleado </h2> <h3> ${empleadoNom} ${empleadoApe} </h3>  recibirá el regalo ${regalo}.</h2>
+	        <h2>El empleado ${empleadoNom} ${empleadoApe} recibirá el regalo ${regalo}.</h2>
 		<br>
 
        </div>

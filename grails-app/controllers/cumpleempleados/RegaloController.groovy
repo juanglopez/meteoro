@@ -119,24 +119,24 @@ class RegaloController {
 	    def result = listaRegaloMes.findAll( { cumpleMes(it.fechaEntrega , mes ,año) }) 
 					
         def total = result.inject ( 0, {sum , value -> sum + value.precio})  
-	    
-		def montoTotal= total.toString();
+
+		def auxD = new Double(total.toString())
+		def trunca = auxD.trunc(2)
+		
 		
 		def send = sendMail {
 			to "renzo.avila@mercadolibre.com"
+			cc "barbara.allegretti@mercadolibre.com", "diego.abdala@mercadolibre.com","gabriel.lopez@mercadolibre.com"
 			from "john@g2one.com"
 			subject "Monto Total Productos a regalar"
-			body 'El monto Total del mes es $ '+ montoTotal
+			body 'El monto Total del mes es $ '+ trunca.toString()
 			}
-
-		[tatalResult: total]
+     
+		[tatalResult: trunca]
 		
 	
 	}
     
-	
-		
-	
 	
 	def cumpleMes(Date cumple , String mes ,String año ){
 		
@@ -172,7 +172,9 @@ class RegaloController {
 				}
 		
 		Date d = new Date();
-		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url,fechaEntrega:d,precio:params.precio);
+		def pre = params.precio as double
+		
+		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url,fechaEntrega:d,precio:pre);
 		regalo.save(failOnError:true);
 		
 		empleado.regalos.add(regalo);
