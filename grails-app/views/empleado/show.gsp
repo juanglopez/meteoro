@@ -63,15 +63,22 @@
 					
 				</li>
 				</g:if>
-						
+			
+<%--				<g:if test="${empleadoInstance?.password}">--%>
+<%--				<li class="fieldcontain">--%>
+<%--					<span id="password-label" class="property-label"><g:message code="empleado.password.label" default="Password" /></span>--%>
+<%--					--%>
+<%--						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${empleadoInstance}" field="password"/></span>--%>
+<%--					--%>
+<%--				</li>--%>
+<%--				</g:if>--%>
+			
 				<g:if test="${empleadoInstance?.regalos}">
 				<li class="fieldcontain">
-					<span id="regalos-label" class="property-label"><g:message code="empleado.regalos.label" default="Regalos" /></span>
+					<span id="regalos-label" class="property-label">
+					<g:message code="empleado.regalos.label" default="Regalos" /></span>
 					
-						<g:each in="${empleadoInstance.regalos}" var="r">
-						<g:link controller="regalo" action="show" params=""><h4>&nbsp;Ver regalos</h4></g:link></span>
-						</g:each>
-					
+					    <td><g:link action="verRegalos" params="[emp : empleadoInstance.id]">  &nbsp; &nbsp;Ver Regalos  </g:link> 
 				</li>
 				</g:if>
 			

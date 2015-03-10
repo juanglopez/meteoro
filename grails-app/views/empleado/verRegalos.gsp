@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'regalo.label', default: 'Regalo')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
