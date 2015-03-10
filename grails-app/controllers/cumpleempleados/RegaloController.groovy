@@ -1,5 +1,8 @@
 package cumpleempleados
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.dao.DataIntegrityViolationException
 
 class RegaloController {
@@ -19,6 +22,8 @@ class RegaloController {
         [regaloInstance: new Regalo(params)]
     }
 
+
+	
     def save() {
         def regaloInstance = new Regalo(params)
         if (!regaloInstance.save(flush: true)) {
@@ -51,6 +56,9 @@ class RegaloController {
 
         [regaloInstance: regaloInstance]
     }
+	
+	
+	
 
     def update(Long id, Long version) {
         def regaloInstance = Regalo.get(id)
@@ -99,6 +107,56 @@ class RegaloController {
             redirect(action: "show", id: id)
         }
     }
+	
+	def montoTotal(){
+				
+		Calendar cal = this.DateToCalendar(new Date())
+		def mes =Integer.toString(cal.get(Calendar.MONTH)+1)
+		def año = Integer.toString(cal.get(Calendar.YEAR))
+		
+		def listaRegaloMes = Regalo.list();
+		
+	    def result = listaRegaloMes.findAll( { cumpleMes(it.fechaEntrega , mes ,año) }) 
+					
+        def total = result.inject ( 0, {sum , value -> sum + value.precio})  
+
+		def auxD = new Double(total.toString())
+		def trunca = auxD.trunc(2)
+		
+		
+		def send = sendMail {
+			to "renzo.avila@mercadolibre.com"
+			cc "barbara.allegretti@mercadolibre.com", "diego.abdala@mercadolibre.com","gabriel.lopez@mercadolibre.com"
+			from "john@g2one.com"
+			subject "Monto Total Productos a regalar"
+			body 'El monto Total del mes es $ '+ trunca.toString()
+			}
+     
+		[tatalResult: trunca]
+		
+	
+	}
+    
+	
+	def cumpleMes(Date cumple , String mes ,String año ){
+		
+		Calendar aux = this.DateToCalendar(cumple)
+		if (((Integer.toString(aux.get(Calendar.MONTH)+1)).equals(mes))
+			&&((Integer.toString(aux.get(Calendar.YEAR)).equals(año)) )) {
+					  
+			  return true
+		}
+		return false
+	}
+  
+	def  Calendar DateToCalendar(Date date){
+	   
+		  Calendar cal = Calendar.getInstance();
+		  cal.setTime(date);
+		  return cal;
+  }
+	
+
 
 	def assignGift() {
 		
@@ -113,13 +171,17 @@ class RegaloController {
 					it.url == params.url
 				}
 		
-		if (regalo != null && regalo.isEmpty()) {
-			regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url);
-			regalo.save(failOnError:true);
-		}
+		Date d = new Date();
+		def pre = params.precio as double
+		
+		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url,fechaEntrega:d,precio:pre);
+		regalo.save(failOnError:true);
 		
 		empleado.regalos.add(regalo);
+		
 		empleado.save(failOnError:true);
+		
+	    //HistoricoRegalo hr = new HistoricoRegalo(idRegalo:regalo.id,idEmpleado:"",Date:"");
 		
 		[regalo: params.descripcion, empleadoNom:empleado.nombre, empleadoApe: empleado.apellido]
 

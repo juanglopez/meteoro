@@ -7,7 +7,7 @@ class AsignarController {
 		
 		
 	//	render params.title + "||" + params.url + params.empleado
-	redirect (controller: 'Regalo' ,action:'assignGift' , title : params.title , url: params.url , empl:params.empleado)
+	redirect (controller: 'Regalo' ,action:'assignGift' , title : params.title , url: params.url , empl:params.empleado, precio:params.precio)
 
 		
 

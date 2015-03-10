@@ -24,6 +24,7 @@
 	<input type="hidden" id="formDescripcion" name="descripcion" value="" />
 	<input type="hidden" id="formUrl" name="url" value="" />
     <input type="hidden" id="formEmp" name="empl" value="${empl}"/>
+    <input type="hidden" id="formPrecio" name="precio" value="" />
 </g:form>
 
 			<h2 align="center">Lista de Regalos</h2> 
@@ -46,20 +47,11 @@
 
 
 
-
-
-
-
-
-
-
-
 <script type="text/javascript">
-function submitRegalo(descripcion,url){
+function submitRegalo(descripcion,url,precio){
 	$("#formDescripcion").val( descripcion )
 	$("#formUrl").val( url )
-
-	
+	$("#formPrecio").val( precio )
      document.forms[0].submit();
 }
 
@@ -75,21 +67,21 @@ promise.fail( mostrarError );
 function mostrarResultado( data ) {
 	document.getElementById("respuesta_api").innerHTML = "";
 	$.each( data.results, agregarResultado )
-	console.log("3");
+	
 	
 }
 
 function agregarResultado(index, item) {
 	console.log("agregandoresultado ",item);
 	$("#respuesta_api").append( "<li><a href=" + item.permalink + ">" + item.title + "</a></li><ol><img src="+
-	item.thumbnail + "/><button type='button' id='b_elegido'"+ index + " onclick=\"submitRegalo('"+ item.title + "','" + item.permalink +"')\">ELEGIR</button></ol>");
+	item.thumbnail + "/><button type='button' id='b_elegido'"+ index + " onclick=\"submitRegalo('"+ item.title + "','" + item.permalink +"','" + item.price +"')\">ELEGIR</button></ol>");
+      
 }
 
 
 
 function mostrarError() {
-	console.log("5");
-	
+
 	$("#respuesta_api").html( "<li>Se produjo un errors</li>" );
 }
 }

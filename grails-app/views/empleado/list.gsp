@@ -24,7 +24,15 @@
 				<li>
 				<g:link  action="buscar">
 				      <h4>Cumplen Hoy</h4> </g:link>
-				 </li>		 				 
+				 </li>
+				 
+				 
+				<li>
+				<g:link  controller="Regalo" action="montoTotal">
+				      <h4>Total Mes</h4> </g:link>
+				 </li>	
+				 
+				 		 				 
 			</ul>			
 		</div>
 		<br>

@@ -15,11 +15,7 @@
 				<a class="" href="${createLink(uri: '/empleado/list')}">
 							<h4>Inicio</h4>
 				</a>
-				</li>
-				<li>
-				<g:link  action="buscar">
-				      <h4>Cumplen Hoy</h4> </g:link>
-				 </li>				 		 				 
+				</li>			 		 				 
 			</ul>			
 		</div>
 		<br>
@@ -27,14 +23,17 @@
 
 		<div>
 		
-	        <h2>El empleado ${empleadoNom} ${empleadoApe} recibirá el regalo ${regalo}.</h2>
+	        <h2>El monto total del mes es: ${tatalResult}</h2>
 		<br>
 
        </div>
        
        
 </body>
-
-
-
 </html>
+
+
+
+
+
+
