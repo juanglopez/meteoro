@@ -1,3 +1,6 @@
+
+<%@ page import="cumpleempleados.Regalo" %>
+
 <!DOCTYPE html> <!-- requerido para indicar q es html 5 -->
 <html>
     <head>	
@@ -17,7 +20,7 @@
 				</a>
 				</li>
 				<li>
-				<g:link  action="buscar">
+				<g:link controller="Empleado" action="buscar">
 				      <h4>Cumplen Hoy</h4> </g:link>
 				 </li>				 		 				 
 			</ul>			

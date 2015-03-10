@@ -8,19 +8,24 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-empleado" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><a href="${createLink(uri: '/')}">
+				   Inicio</a></li>
+				<li><g:link  action="list">
+			         Lista Empleados</g:link></li>
+				<li><g:link class="create" action="create">
+				Agregar Empleado</g:link></li>
 			</ul>
 		</div>
+		
+		<br>
+		
 		<div id="show-empleado" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
+		
+			<h2 align="center">Editar Empleado</h2>
+			
+			
 			<ol class="property-list empleado">
 			
 				<g:if test="${empleadoInstance?.apellido}">
@@ -58,22 +63,13 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${empleadoInstance?.password}">
-				<li class="fieldcontain">
-					<span id="password-label" class="property-label"><g:message code="empleado.password.label" default="Password" /></span>
-					
-						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${empleadoInstance}" field="password"/></span>
-					
-				</li>
-				</g:if>
-			
+						
 				<g:if test="${empleadoInstance?.regalos}">
 				<li class="fieldcontain">
 					<span id="regalos-label" class="property-label"><g:message code="empleado.regalos.label" default="Regalos" /></span>
 					
 						<g:each in="${empleadoInstance.regalos}" var="r">
-						<span class="property-value" aria-labelledby="regalos-label"><g:link controller="regalo" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						<g:link controller="regalo" action="show" params=""><h4>&nbsp;Ver regalos</h4></g:link></span>
 						</g:each>
 					
 				</li>
