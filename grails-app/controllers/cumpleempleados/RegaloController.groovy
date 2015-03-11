@@ -1,9 +1,7 @@
 package cumpleempleados
 
-import java.util.Calendar;
-import java.util.Date;
-
 import org.springframework.dao.DataIntegrityViolationException
+import util.Utils
 
 class RegaloController {
 
@@ -110,13 +108,13 @@ class RegaloController {
 	
 	def montoTotal(){
 				
-		Calendar cal = this.DateToCalendar(new Date())
+		Calendar cal = Utils.DateToCalendar(new Date())
 		def mes =Integer.toString(cal.get(Calendar.MONTH)+1)
 		def año = Integer.toString(cal.get(Calendar.YEAR))
 		
 		def listaRegaloMes = Regalo.list();
 		
-	    def result = listaRegaloMes.findAll( { cumpleMes(it.fechaEntrega , mes ,año) }) 
+	    def result = listaRegaloMes.findAll( { Utils.cumpleMes(it.fechaEntrega , mes ,año) }) 
 					
         def total = result.inject ( 0, {sum , value -> sum + value.precio})  
 
@@ -136,25 +134,8 @@ class RegaloController {
 		
 	
 	}
-    
-	
-	def cumpleMes(Date cumple , String mes ,String año ){
-		
-		Calendar aux = this.DateToCalendar(cumple)
-		if (((Integer.toString(aux.get(Calendar.MONTH)+1)).equals(mes))
-			&&((Integer.toString(aux.get(Calendar.YEAR)).equals(año)) )) {
-					  
-			  return true
-		}
-		return false
-	}
   
-	def  Calendar DateToCalendar(Date date){
-	   
-		  Calendar cal = Calendar.getInstance();
-		  cal.setTime(date);
-		  return cal;
-  }
+
 	
 
 
@@ -171,20 +152,33 @@ class RegaloController {
 					it.url == params.url
 				}
 		
-		Date d = new Date();
+		Date fechaActual = new Date();
 		def pre = params.precio as double
 		
-		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url,fechaEntrega:d,precio:pre);
+		regalo = new Regalo(estado:0, descripcion: params.descripcion, url:params.url, fechaEntrega:fechaActual, precio:pre);
 		regalo.save(failOnError:true);
 		
-		empleado.regalos.add(regalo);
+		Calendar cal = Utils.DateToCalendar(fechaActual)
+		def mes = Integer.toString(cal.get(Calendar.MONTH)+1)
+		def año = Integer.toString(cal.get(Calendar.YEAR))
+		
+		def regalosAsignados = empleado.regalos.findAll({
+			Utils.cumpleMes(it.fechaEntrega, mes, año)
+		})
+		
+		if (regalosAsignados != null && regalosAsignados.isEmpty()) {
+			empleado.regalos.add(regalo);
+		}	
 		
 		empleado.save(failOnError:true);
 		
-	    //HistoricoRegalo hr = new HistoricoRegalo(idRegalo:regalo.id,idEmpleado:"",Date:"");
-		
 		[regalo: params.descripcion, empleadoNom:empleado.nombre, empleadoApe: empleado.apellido]
 
+	}
+	
+	def viewWarning (){
+		
+		
 	}
 	
 }

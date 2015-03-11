@@ -8,24 +8,37 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>		
-       
-       <br>		
-		<div class="nav" role="navigation"> 	       
+
+		<br/>
+		<div class="nav" role="navigation"> 
+			<ul>   
 				<li>
-				<a class="" href="${createLink(uri: '/empleado/list')}">
-				<h4>Inicio</h4>
-				</a>
+					<a class="" href="${createLink(uri: '/empleado/list')}">
+						<h4>Inicio</h4>
+					</a>
 				</li>
-		</div>
-		<br>		
-       
+				<li>
+					<g:link controller="Empleado" class="create" action="create" >
+					<h4>Agregar Empleado</h4> </g:link>
+				</li>
+				<li>
+					<g:link controller="Empleado" action="buscar">
+					<h4>Cumplen Hoy</h4> </g:link>
+				</li>
+				<li>
+					<g:link  controller="Regalo" action="montoTotal">
+					<h4>Total Mes</h4> </g:link>
+				</li>	 		 				 
+			</ul>			
+		</div>	
+       	<br/><br/>
 		<div id="list-empleado" class="content scaffold-list" role="main">		
 			     <h2 align="center">Hoy cumplen estos Empleados</h2> 
 			     <br>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div> 
+				<div class="message" role="status">${flash.message}</div> 
 			</g:if>
-		
+			<br>
 			<table>
 				<thead>
 					<tr>					    				 					    

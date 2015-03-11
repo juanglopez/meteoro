@@ -8,16 +8,29 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a href="${createLink(uri: '/')}">
-				   Inicio</a></li>
-				<li><g:link  action="list">
-			         Lista Empleados</g:link></li>
-				<li><g:link class="create" action="create">
-				Agregar Empleado</g:link></li>
-			</ul>
+		<br/>
+		<div class="nav" role="navigation"> 
+			<ul>   
+				<li>
+					<a class="" href="${createLink(uri: '/empleado/list')}">
+						<h4>Inicio</h4>
+					</a>
+				</li>
+				<li>
+					<g:link controller="Empleado" class="create" action="create" >
+					<h4>Agregar Empleado</h4> </g:link>
+				</li>
+				<li>
+					<g:link controller="Empleado" action="buscar">
+					<h4>Cumplen Hoy</h4> </g:link>
+				</li>
+				<li>
+					<g:link  controller="Regalo" action="montoTotal">
+					<h4>Total Mes</h4> </g:link>
+				</li>	 		 				 
+			</ul>			
 		</div>
+		
 		
 		<br>
 		

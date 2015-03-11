@@ -13,7 +13,7 @@
 	       
 				<li>
 				<a class="" href="${createLink(uri: '/empleado/list')}">
-							<h4>Inicio</h4>
+					<h4>Inicio</h4>
 				</a>
 				</li>
 				<li>
@@ -30,9 +30,7 @@
 				<li>
 				<g:link  controller="Regalo" action="montoTotal">
 				      <h4>Total Mes</h4> </g:link>
-				 </li>	
-				 
-				 		 				 
+				 </li>	 		 				 
 			</ul>			
 		</div>
 		<br>
@@ -41,7 +39,7 @@
 		<div id="list-empleado" class="content scaffold-list" role="main">
 		
 			     <h2 align="center">Empleados</h2> 
-			     <br>
+			     <br/>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div> 
 			</g:if>

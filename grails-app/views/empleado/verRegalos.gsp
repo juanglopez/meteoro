@@ -10,14 +10,31 @@
 	</head>
 	<body>
 		<a href="#show-regalo" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>				
-			</ul>
-		</div>	
-			
-			<h2 align="center">Regalos Empleado</h2>
-			<br>
+		<br/>
+		<div class="nav" role="navigation"> 
+			<ul>   
+				<li>
+					<a class="" href="${createLink(uri: '/empleado/list')}">
+						<h4>Inicio</h4>
+					</a>
+				</li>
+				<li>
+					<g:link controller="Empleado" class="create" action="create" >
+					<h4>Agregar Empleado</h4> </g:link>
+				</li>
+				<li>
+					<g:link controller="Empleado" action="buscar">
+					<h4>Cumplen Hoy</h4> </g:link>
+				</li>
+				<li>
+					<g:link  controller="Regalo" action="montoTotal">
+					<h4>Total Mes</h4> </g:link>
+				</li>	 		 				 
+			</ul>			
+		</div>
+		<br/><br/>	
+		<h2 align="center">Regalos Empleado</h2>
+		<br>
 	
 		
      

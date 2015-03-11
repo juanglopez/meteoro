@@ -29,11 +29,15 @@
 	</div>
 	<div><br/><br/></div> 	
 	<div>
-		<h1 style="margin-left: 50px;">El costo total en regalos de este mes es de $${tatalResult}.</h1>
+		<h1 style="margin-left: 50px;">No se puede asignar más de un regalo a un empleado para el mismo cumpleaños.</h1>
 	</div>
 	<div><br/><br/><br/></div>       
 </body>
 </html>
+
+
+
+
 
 
 
