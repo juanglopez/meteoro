@@ -3,8 +3,20 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		     <link href="${ resource (dir: 'css' , file : 'main.css')}"  rel="stylesheet" type="text/css" />
+		
 		<g:set var="entityName" value="${message(code: 'empleado.label', default: 'Empleado')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+	
+	<style type="text/css">
+	
+	 #button {
+  			position: relative;
+  		    margin-left: 310px;
+  		
+	  }
+	</style>
+	
 	</head>
 	<body>
 		<a href="#create-empleado" class="skip" tabindex="-1">
@@ -35,15 +47,18 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
+			
 			<g:form action="save" >
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
-			
-				
-					<g:submitButton name="create"  value="${message(code: 'default.button.create.label', default: 'Create')}" />
+
+				<g:submitButton id="button" class ="button_example" name="create"  value="Crear Empleado" />
+				</div>
 				
 			</g:form>
-		</div>
+
+			<br><br>
+	
 	</body>
 </html>
