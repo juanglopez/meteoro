@@ -27,7 +27,8 @@
 				<li>
 					<g:link  controller="Regalo" action="montoTotal">
 					<h4>Total Mes</h4> </g:link>
-				</li>	 		 				 
+				</li>
+				<li style="margin-left:300px;"><a class="home" href="${createLink(uri: '/')}"><h4><g:message code="default.home.label"/></h4></a></li>	 		 				 
 			</ul>			
 		</div>
 
